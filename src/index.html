@@ -540,5 +540,13 @@
 <script src="js/webvowl.js"></script>
 <script src="js/webvowl.app.js"></script>
 <script>window.onload = webvowl.app().initialize;</script>
+
+<script>
+  // Force WebVOWL to use OWL2VOWL service on port 8081
+  if (typeof WebVOWL !== "undefined") {
+    WebVOWL.OWL2VOWL_URL = "http://localhost:8081";
+    console.log("OWL2VOWL URL set to http://localhost:8081");
+  }
+</script>
 </body>
 </html>

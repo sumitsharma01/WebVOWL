@@ -1,9 +1,20 @@
 version: '3'
 
 services:
-    
-    server:
-        build: .
-        command: catalina.sh run
-        ports:
-            - 8080:8080
+
+  webvowl:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./deploy:/usr/local/tomcat/webapps/ROOT
+    depends_on:
+      - owl2vowl
+
+  owl2vowl:
+    image: openjdk:8-jre-alpine
+    command: java -jar /owl2vowl/OWL2VOWL-0.3.7.jar
+    volumes:
+      - ./owl2vowl:/owl2vowl
+    ports:
+      - "8081:8081"   # or any other free port for the OWL2VOWL service

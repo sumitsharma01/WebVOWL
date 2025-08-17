@@ -57,3 +57,57 @@ inlines the styles - otherwise the exported SVG will not look the same as the di
 
 The tool which creates the code that inlines the styles can be found in the util directory. Please
 follow the instructions in its [README](util/VowlCssToD3RuleConverter/README.md) file.
+
+
+
+
+# OWL to VOWL JSON Conversion Guide
+
+This guide explains how to convert an `.owl` ontology file to a `.vowl.json` file using OWL2VOWL manually.
+
+## Steps
+
+### Build OWL2VOWL
+Run the following command to build OWL2VOWL:
+
+```bash
+mvn clean install -DskipTests
+```
+
+### Prepare your .owl file
+Move your ontology file to the `ontologies/` folder:
+
+```
+OWL2VOWL/ontologies/oeo-full.owl
+```
+
+### Run the conversion
+Execute the following command to convert the `.owl` file to `.vowl.json`:
+
+```bash
+java --add-opens java.base/java.lang=ALL-UNNAMED \
+    -cp "target/OWL2VOWL-0.3.7.jar:target/dependency/*" \
+    de.uni_stuttgart.vis.vowl.owl2vowl.ConsoleMain \
+    -file ontologies/oeo-full.owl \
+    -output ontologies/oeo-full.vowl.json
+```
+
+### Common Error & Fix
+
+**Error:**
+```
+ERROR StatusLogger Log4j2 could not find a logging implementation. Please add log4j-core to the classpath.
+```
+
+**Fix:**
+This is a logging warning. The conversion still works, and the `.vowl.json` file is created. No additional steps are needed unless you want proper Log4j2 logging.
+
+### Locate the output file
+The JSON file will be in the same folder:
+
+```
+OWL2VOWL/ontologies/oeo-full.vowl.json
+```
+
+### Use the JSON
+Open the `.vowl.json` file in a VOWL viewer to visualize your ontology.
