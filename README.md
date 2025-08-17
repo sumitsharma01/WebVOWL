@@ -111,3 +111,4 @@ OWL2VOWL/ontologies/oeo-full.vowl.json
 
 ### Use the JSON
 Open the `.vowl.json` file in a VOWL viewer to visualize your ontology.
+
