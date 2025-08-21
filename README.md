@@ -55,9 +55,7 @@ The tool which creates the code that inlines the styles can be found in the util
 follow the instructions in its [README](util/VowlCssToD3RuleConverter/README.md) file.
 
 
-
-
-# OWL to VOWL JSON Conversion Guide
+# OWL to VOWL JSON format Conversion Guide
 
 This guide explains how to convert an `.owl` ontology file to a `.vowl.json` file using OWL2VOWL manually.
 
